@@ -125,3 +125,28 @@
 .table td {
   color: var(--text-secondary);
 }
+
+.domainStats {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.domainStats h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.domainStats ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.city {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}

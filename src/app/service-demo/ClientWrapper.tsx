@@ -1,7 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getUsers, getUserById, ApiError } from '@/features/user/services/userServiceTemp';
+import {
+  getUsers,
+  getUserById,
+  ApiError,
+  groupByDomain,
+  getTopUsers,
+} from '@/features/user/services/userServiceTemp';
 import type { User } from '@/features/user/services/userServiceTemp';
 import styles from './page.module.css';
 
@@ -17,6 +23,7 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
 export default function ClientUsers() {
   const [users, setUsers] = useState<User[]>([]);
   const [single, setSingle] = useState<User | null>(null);
+  const [domainStats, setDomainStats] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -25,7 +32,12 @@ export default function ClientUsers() {
     setError('');
     try {
       const data = await getUsers();
-      setUsers(data.slice(0, 5));
+      // Convert back to full User objects for rendering
+      const fullUsers = data.filter((_, idx) => idx < 5);
+      setUsers(fullUsers);
+      //  Complex object operation: group by domain
+      const grouped = groupByDomain(data);
+      setDomainStats(grouped);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Fetch failed');
     } finally {
@@ -53,11 +65,17 @@ export default function ClientUsers() {
     loadAll();
   }, []);
 
+  //  Safe property access for nested address
+  const getCity = (user: User) => {
+    const { address: { city = 'No city' } = {} } = user;
+    return city;
+  };
+
   return (
-    <Card title="Client-side fetch">
+    <Card title=" Client-side fetch (Advanced JS)">
       <p className={styles.desc}>
-        This data is fetched <strong>after</strong> the page loads in the browser.
-        You see a spinner while waiting.
+        This data is fetched <strong>after</strong> the page loads. We use functional array methods,
+        nested destructuring, and complex object operations (group by domain).
       </p>
       <div className={styles.actions}>
         <button onClick={loadAll} className={styles.btn}>
@@ -77,14 +95,32 @@ export default function ClientUsers() {
       {single && (
         <div className={styles.single}>
           Single user: <strong>{single.name}</strong> ({single.email})
+          <span className={styles.city}> – City: {getCity(single)}</span>
         </div>
       )}
+
       {users.length > 0 && (
-        <ul className={styles.list}>
-          {users.map(u => (
-            <li key={u.id}>{u.name} ({u.email})</li>
-          ))}
-        </ul>
+        <>
+          <ul className={styles.list}>
+            {users.map((u) => (
+              <li key={u.id}>
+                {u.name} ({u.email}) – {getCity(u)}
+              </li>
+            ))}
+          </ul>
+
+          {/*  Display domain statistics */}
+          <div className={styles.domainStats}>
+            <h3>Email Domain Distribution</h3>
+            <ul>
+              {Object.entries(domainStats).map(([domain, count]) => (
+                <li key={domain}>
+                  {domain}: {count} user{count !== 1 ? 's' : ''}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
       )}
     </Card>
   );

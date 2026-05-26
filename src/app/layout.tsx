@@ -1,7 +1,6 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import ThemeToggle from "@/components/ThemeToggle";
+import ThemeToggle from "@/app/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Service Layer Demo",
