@@ -2,7 +2,7 @@
 
 ## Hosted link: https://smart-goal-one.vercel.app/service-demo
 ## visual preview 
-![alt text](image-1.png)
+![alt text](image-6.png)
 ![alt text](image-2.png)
 
 ### 1. Nested Destructuring
