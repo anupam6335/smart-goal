@@ -72,7 +72,7 @@ export default function ClientUsers() {
   };
 
   return (
-    <Card title=" Client-side fetch (Advanced JS)">
+    <Card title=" Client-side fetch (user can interact here through button after page load)">
       <p className={styles.desc}>
         This data is fetched <strong>after</strong> the page loads. We use functional array methods,
         nested destructuring, and complex object operations (group by domain).

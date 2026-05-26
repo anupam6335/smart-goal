@@ -19,7 +19,7 @@ async function ServerUsers() {
     const domainGroups = groupByDomain(users);
 
     return (
-      <Card title="Server-side fetch (Advanced)">
+      <Card title="Server-side fetch (shown during page load)">
         <p className={styles.desc}>
           This data is fetched <strong>on the server</strong>. We also apply functional pipelines
           and complex object operations here.
@@ -56,7 +56,7 @@ export default function ServiceDemoPage() {
     <div className={styles.page}>
       <h1 className={styles.mainTitle}>SMART GOAL REVIEW 2</h1>
       <div className={styles.grid}>
-        <Suspense fallback={<Card title="Server-side fetch"><p>Loading…</p></Card>}>
+        <Suspense fallback={<Card title="Server-side fetch......"><p>Loading…</p></Card>}>
           <ServerUsers />
         </Suspense>
         <ClientWrapper />
