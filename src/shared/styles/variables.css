@@ -1,0 +1,31 @@
+/* src/shared/styles/variables.css */
+@import './themes/light.css';
+@import './themes/dark.css';
+
+:root {
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-code: 'Cascadia Mono', 'Consolas', monospace;
+
+  /* other variables unchanged */
+  --transition: all 0.2s ease;
+  --radius: 6px;
+
+  /* Heatmap colors (unused but keep) */
+  --heat-0: #ebedf0;
+  --heat-1: #9be9a8;
+  --heat-2: #40c463;
+  --heat-3: #30a14e;
+  --heat-4: #216e39;
+
+  --transition: all 0.2s ease;
+  --radius: 6px;
+  --breakpoint-desktop: 940px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 480px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
