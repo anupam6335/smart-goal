@@ -11,11 +11,15 @@ export class ApiError extends Error {
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
-async function apiRequest<T>(endpoint: string): Promise<T> {
+
+export async function apiRequest<T>(
+  endpoint: string,
+  options?: RequestInit & { next?: { revalidate?: number } }
+): Promise<T | null> {
   let response: Response;
 
   try {
-    response = await fetch(`${BASE_URL}${endpoint}`);
+    response = await fetch(`${BASE_URL}${endpoint}`, options);
   } catch (networkError) {
     throw new ApiError(
       'Network error – unable to reach the server.',
@@ -24,10 +28,16 @@ async function apiRequest<T>(endpoint: string): Promise<T> {
     );
   }
 
-  //  Nested destructuring with fallback
   const { ok, status, statusText } = response;
 
   if (!ok) {
+    let errorDetail = '';
+    try {
+      const errorBody = await response.json();
+      errorDetail = errorBody.message || JSON.stringify(errorBody);
+    } catch {
+      // If response is not JSON, ignore
+    }
     const errorMessages: Record<number, string> = {
       400: 'Bad request – please check your input.',
       401: 'Unauthorized – please log in.',
@@ -36,15 +46,13 @@ async function apiRequest<T>(endpoint: string): Promise<T> {
     };
     const message =
       errorMessages[status] || `Unexpected error (${status}): ${statusText}`;
-    throw new ApiError(message, status);
+    throw new ApiError(message, status, errorDetail);
   }
 
-  // Handle 204 No Content
   if (status === 204) {
-    return null as T;
+    return null;
   }
 
-  //  Safe JSON parsing with error handling
   let data: T;
   try {
     data = await response.json();
@@ -67,33 +75,36 @@ export interface User {
 }
 
 export async function getUsers(): Promise<User[]> {
-  return apiRequest<User[]>('/users');
+  // Explicit caching: revalidate every 60 seconds
+  const result = await apiRequest<User[]>('/users', {
+    next: { revalidate: 60 },
+  });
+  return result ?? [];
 }
 
-export async function getUserById(id: number): Promise<User> {
+export async function getUserById(id: number): Promise<User | null> {
   return apiRequest<User>(`/users/${id}`);
 }
 
 /**
- *  Complex object operation: group users by email domain
- * Uses reduce and safe destructuring
+ * Group users by email domain (complex object operation)
+ * Uses reduce and safe destructuring.
  */
 export function groupByDomain(users: User[]): Record<string, number> {
   return users.reduce((acc, { email }) => {
-    const domain = email?.split('@')[1] ?? 'unknown';
+    const domain = email?.split('@')[1]?.toLowerCase().trim() ?? 'unknown';
     acc[domain] = (acc[domain] ?? 0) + 1;
     return acc;
   }, {} as Record<string, number>);
 }
 
 /**
- *  Functional: filter + map + reduce
- * Returns top 5 users with uppercase names
+ * Returns top N users with uppercase names using slice + map.
  */
 export function getTopUsers(users: User[], limit = 5) {
   return users
-    .filter((_, idx) => idx < limit)          // pure functional
-    .map(({ id, name, email }) => ({          // destructuring
+    .slice(0, limit)
+    .map(({ id, name, email }) => ({
       id,
       displayName: name.toUpperCase(),
       email,
