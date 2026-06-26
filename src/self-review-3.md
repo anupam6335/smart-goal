@@ -1,11 +1,9 @@
 # Self-Review: smart goal 3
----
 
 Overview
 
 This review covers the additional improvements made after the initial submission of Review 2. The changes focus on enhancing the service layer, adding request cancellation and search functionality on the client, and improving overall code performance.
 
----
 
 1. Service Layer Enhancements
 
@@ -38,7 +36,6 @@ Why this improves the code
 • It keeps the service layer consistent instead of introducing multiple request functions.
 • It also allows caching options to be passed whenever they're needed.
 
----
 
 b. Error response body parsing
 
@@ -77,7 +74,6 @@ Why this improves the code
 · The UI can display specific validation errors from the backend.
 · Fallback to empty detail ensures we never crash when the error response is not json.
 
----
 
 c. Caching strategy for server‑side fetch
 
@@ -104,7 +100,6 @@ Why this improves the code
 · Improves server performance. cached data is served instantly.
 · Still provides fresh data within a minute (stale‑while‑revalidate).
 
----
 
 d. getUserById returns User | null
 
@@ -132,7 +127,6 @@ Why this improves the code
 · Prevents bugs like Cannot read property 'name' of null.
 · Aligns the type with the actual implementation.
 
----
 
 e. Improved functional methods
 
@@ -174,7 +168,6 @@ Why this improves the code
 · Domain statistics become accurate and case‑insensitive.
 · Minimal performance gain, but code is cleaner.
 
----
 
 2. Client Component Improvements
 
@@ -210,7 +203,6 @@ Why this improves the code
 · Cancels stale requests, saving bandwidth.
 · The UI stays consistent – old results won’t appear after a new search.
 
----
 
 b. Performance optimisations with useCallback and memo
 
@@ -238,7 +230,6 @@ Why this improves the code
 · The Card component only re‑renders when its props change.
 · This reduces unnecessary renders and keeps the UI responsive while interacting with the page.
 
----
 
 c. Debounced search functionality
 
@@ -279,7 +270,6 @@ Why this improves the code
 · The filter is case‑insensitive and handles partial matches.
 · A small counter shows the number of matches, giving clear feedback.
 
----
 
 3. Server Component Caching
 
@@ -301,18 +291,15 @@ Why this improves the code
 · Less load on the external API.
 · The comment helps other developers understand the caching behaviour.
 
----
 
 # Summary of All Changes
-=============================
 
-Area Change Benefit
-Service layer apiRequest accepts request options Supports all HTTP methods and caching
-Service layer Error body parsing Better error messages, easier debugging
-Service layer Explicit caching (revalidate: 60) Faster server responses, reduced API load
-Service layer getUserById returns User \| null Type safety, avoids runtime errors
-Service layer Functional method improvements Cleaner code, case‑insensitive domain grouping
-Client component AbortController Prevents memory leaks and stale updates
-Client component useCallback + memo Fewer re‑renders, better performance
-Client component Debounced search Smooth interactive search experience
-Server component Implicit caching via getUsers Faster page loads, less API traffic
+- Service layer apiRequest accepts request options Supports all HTTP methods and caching
+- Service layer Error body parsing Better error messages, easier debugging
+- Service layer Explicit caching (revalidate: 60) Faster server responses, reduced API load
+- Service layer getUserById returns User \| null Type safety, avoids runtime errors
+- Service layer Functional method improvements Cleaner code, case‑insensitive domain grouping
+- Client component AbortController Prevents memory leaks and stale updates
+- Client component useCallback + memo Fewer re‑renders, better performance
+- Client component Debounced search Smooth interactive search experience
+- Server component Implicit caching via getUsers Faster page loads, less API traffic
