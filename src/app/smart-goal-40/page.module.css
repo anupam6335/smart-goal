@@ -1,0 +1,306 @@
+.page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-primary);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbLink:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  color: var(--border);
+  user-select: none;
+}
+
+.breadcrumbCurrent {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.btnFresh {
+  color: var(--accent-moss);
+}
+
+.btnCache {
+  color: var(--text-primary);
+}
+
+.btnInvalidate {
+  color: var(--error);
+}
+
+.statusBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.statusItem {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.statusItem strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.statusBadge {
+  font-weight: 600;
+}
+
+.statusBadgeCached {
+  color: var(--accent-moss);
+}
+
+.statusBadgeFresh {
+  color: var(--text-primary);
+}
+
+.responseTime {
+  font-weight: 600;
+}
+
+.responseTimeCached {
+  color: var(--accent-moss);
+}
+
+.responseTimeFresh {
+  color: var(--text-primary);
+}
+
+.insightBox {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.insightBox strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.loading {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.errorBox {
+  padding: 0.75rem 0;
+  color: var(--error);
+  border-bottom: 1px solid var(--error);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.productCard {
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 0.75rem;
+}
+
+.productImage {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: var(--bg-elevated);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.productTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.25rem 0 0.1rem;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productMeta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0.1rem 0;
+}
+
+.productPrice {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 0;
+  font-size: 1.1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--divider);
+}
+
+.paginationBtn {
+  background: none;
+  border: none;
+  padding: 0.2rem 0.4rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s;
+}
+
+.paginationBtn:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.paginationBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.paginationInfo {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.footerInfo {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--divider);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footerInfo code {
+  background: var(--code-bg);
+  padding: 0.1rem 0.4rem;
+}
+
+.footerInfo a {
+  color: var(--accent-moss);
+  text-decoration: underline;
+}
+
+.footerInfo a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .controls {
+    gap: 0.5rem 1rem;
+  }
+  .statusBar {
+    gap: 0.5rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .productGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .pagination {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+}

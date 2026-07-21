@@ -1,0 +1,138 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-primary);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbLink:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  color: var(--border);
+  user-select: none;
+}
+
+.breadcrumbCurrent {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--divider);
+}
+
+.item {
+  border-bottom: 1px solid var(--divider);
+  padding: 0.25rem 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.header:hover {
+  color: var(--accent-moss);
+}
+
+.header:focus-visible {
+  outline: 2px solid var(--accent-moss);
+  outline-offset: 2px;
+}
+
+.titleText {
+  flex: 1;
+}
+
+.icon {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-left: 1rem;
+  transition: transform 0.2s;
+}
+
+/* Panel – expandable content */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 0 0 0;
+  will-change: max-height;
+}
+
+.panelOpen {
+  max-height: 300px;
+  padding: 0.25rem 0 0.75rem 0;
+}
+
+.content {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .header {
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+  }
+  .icon {
+    font-size: 1.1rem;
+  }
+}
