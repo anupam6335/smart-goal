@@ -87,6 +87,17 @@
   align-self: flex-start;
 }
 
+.link {
+  color: var(--text-primary);   
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--accent-moss);    
+  text-decoration: underline;   
+}
+
 @media (max-width: 640px) {
   .container {
     padding: 1rem;

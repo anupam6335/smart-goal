@@ -9,7 +9,11 @@ export default function HomePage() {
       </div>
 
       <header className={styles.header}>
-        <h1 className={styles.title}>Service Layer Demo</h1>
+        <h1 className={styles.title}>
+          <Link href="/service-demo" className={styles.link}>
+            Service Layer Demo
+          </Link>
+        </h1>
         <p className={styles.subtitle}>
           A collection of full‑stack experiments and frontend mini‑challenges.
         </p>
