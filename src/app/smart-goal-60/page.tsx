@@ -13,7 +13,7 @@ export default function SmartGoal60() {
     {
       id: 'accordion',
       title: 'Accordion',
-      description: 'Expandable FAQ‑style accordion with accessible keyboard support.',
+      description: 'Expandable FAQ‑style accordion.',
       path: '/smart-goal-60/accordion',
       tag: 'React',
     },
