@@ -24,7 +24,7 @@
         <br />
         <b>Redis Data Viewer</b>
         <br />
-        <span style="color:gray; font-size:12px;">[Your third image description]</span>
+        <span style="color:gray; font-size:12px;"></span>
       </td>
     </tr>
   </table>
