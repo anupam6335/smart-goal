@@ -1,0 +1,143 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.breadcrumbLink {
+  color: var(--accent-moss);
+  text-decoration: none;
+}
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+.breadcrumbSeparator {
+  margin: 0 0.25rem;
+  color: var(--text-muted);
+}
+.breadcrumbCurrent {
+  color: var(--text-secondary);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.modeButton {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.modeButton.active {
+  background: var(--accent-moss);
+  border-color: var(--accent-moss);
+  color: white;
+}
+
+.modeButton:hover:not(.active) {
+  background: var(--hover-surface);
+}
+
+.status {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 1.5rem;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cell:hover {
+  background: var(--hover-surface);
+}
+
+.cell.winning {
+  background: #43e95e;
+  color: #0e0d0d;
+  border-color: var(--accent-moss);
+}
+
+.resetButton {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resetButton:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+  .cell {
+    font-size: 2rem;
+  }
+  .board {
+    max-width: 260px;
+  }
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

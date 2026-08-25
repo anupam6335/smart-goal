@@ -1,0 +1,109 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.breadcrumbLink {
+  color: var(--accent-moss);
+  text-decoration: none;
+}
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+.breadcrumbSeparator {
+  margin: 0 0.25rem;
+  color: var(--text-muted);
+}
+.breadcrumbCurrent {
+  color: var(--text-secondary);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--accent-moss);
+  cursor: pointer;
+  background: transparent;
+}
+
+.tableWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  gap: 4px;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  transition: background 0.2s;
+  user-select: none;
+}
+.cell:hover {
+  background: var(--hover-surface);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  .controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .grid {
+    gap: 3px;
+  }
+  .cell {
+    font-size: 0.85rem;
+  }
+}

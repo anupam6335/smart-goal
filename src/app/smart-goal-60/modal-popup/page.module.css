@@ -1,0 +1,253 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.breadcrumbLink {
+  color: var(--accent-moss);
+  text-decoration: none;
+}
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+.breadcrumbSeparator {
+  margin: 0 0.25rem;
+  color: var(--text-muted);
+}
+.breadcrumbCurrent {
+  color: var(--text-secondary);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Settings panel */
+.settings {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.settingsLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.typeButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+.typeBtn {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.typeBtn:hover {
+  background: var(--hover-surface);
+}
+.typeBtn.active {
+  border-color: var(--accent-moss);
+  background: var(--accent-moss);
+  color: white;
+}
+.typeBtn.info.active {
+  border-color: #3b82f6;
+  background: #3b82f6;
+}
+.typeBtn.warning.active {
+  border-color: #f59e0b;
+  background: #f59e0b;
+}
+.typeBtn.delete.active {
+  border-color: #ef4444;
+  background: #ef4444;
+}
+
+.openButton {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+  border-radius: 6px;
+}
+.openButton:hover {
+  background: var(--border);
+}
+.openButton:active {
+  transform: scale(0.97);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  animation: fadeIn 0.25s ease;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 420px;
+  width: calc(100% - 2rem);
+  background: var(--bg-surface);
+  padding: 2rem;
+  z-index: 1000;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.06);
+  animation: scaleIn 0.25s ease;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.modalTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.typeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0 0.25rem;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.modalClose:hover {
+  color: var(--text-primary);
+}
+
+.modalBody {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+.btnCancel {
+  padding: 0.4rem 1.2rem;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.btnCancel:hover {
+  color: var(--text-primary);
+}
+.btnConfirm {
+  padding: 0.4rem 1.2rem;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btnConfirm:hover {
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  .settings {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .modal {
+    padding: 1.5rem;
+  }
+  .modalFooter {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+  .btnCancel,
+  .btnConfirm {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+}

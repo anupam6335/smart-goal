@@ -31,6 +31,48 @@ export default function SmartGoal60() {
       path: '/smart-goal-60/password-strength-checker',
       tag: 'React',
     },
+    {
+      id: 'weather-app',
+      title: 'Weather App',
+      description: 'Current weather for any city – clean typographic design.',
+      path: '/smart-goal-60/weather-app',
+      tag: 'React',
+    },
+    {
+      id: 'star-rating',
+      title: 'Star Rating',
+      description: 'Click to rate, hover to preview, clear to reset.',
+      path: '/smart-goal-60/star-rating',
+      tag: 'React',
+    },
+    {
+      id: 'tic-tac-toe',
+      title: 'Tic‑Tac‑Toe',
+      description: 'Classic 3x3 game with win detection and reset.',
+      path: '/smart-goal-60/tic-tac-toe',
+      tag: 'React',
+    },
+    {
+      id: 'toast',
+      title: 'Toast',
+      description: 'Minimal notification system with auto-dismiss.',
+      path: '/smart-goal-60/toast',
+      tag: 'React',
+    },
+    {
+      id: 'modal-popup',
+      title: 'Modal Popup',
+      description: 'Simple modal with overlay, close on backdrop or Esc.',
+      path: '/smart-goal-60/modal-popup',
+      tag: 'React',
+    },
+    {
+      id: 'column-table',
+      title: 'Column Table',
+      description: 'Sortable data table with clean typography.',
+      path: '/smart-goal-60/column-table',
+      tag: 'React',
+    },
   ];
 
   return (

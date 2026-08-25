@@ -11,6 +11,9 @@ export function getRedisClient(): Redis {
 
     redisClient = new Redis(url, {
       retryStrategy: (times) => Math.min(times * 50, 2000),
+      connectTimeout: 5000,        
+      commandTimeout: 5000,        
+      maxRetriesPerRequest: 3,    
     });
 
     redisClient.on('connect', () => {

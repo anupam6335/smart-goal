@@ -139,6 +139,9 @@ export default function Page() {
         >
           Invalidate Cache
         </button>
+        <Link href="/smart-goal-40/patterns" className={styles.btnLink}>
+          View Caching Patterns
+        </Link>
       </div>
 
       {loading && (
