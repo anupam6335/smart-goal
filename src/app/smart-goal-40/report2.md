@@ -10,21 +10,18 @@
         <br />
         <b>Caching Patterns</b>
         <br />
-        <span style="color:gray; font-size:12px;">Interactive UI with performance comparison</span>
       </td>
       <td align="center" width="33%">
          <img width="851" height="770" alt="Image" src="https://github.com/user-attachments/assets/71dc1938-af2d-4c3e-930f-1a73ff8f2d07" />   
         <br />
         <b>Product List</b>
         <br />
-        <span style="color:gray; font-size:12px;">Real-time DB and Redis data viewer</span>
       </td>
       <td align="center" width="33%">
         <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/903b0b96-b6be-4f79-9feb-6f5f72901fc6" />
         <br />
         <b>Redis Data Viewer</b>
         <br />
-        <span style="color:gray; font-size:12px;"></span>
       </td>
     </tr>
   </table>
